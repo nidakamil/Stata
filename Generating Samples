@@ -1,0 +1,74 @@
+capture log close
+log using "C:\Users\ntuchol\Downloads\ps8-4.log", replace
+cd "C:\Users\ntuchol\Downloads"
+capture program drop n10 
+program define n10, rclass
+	drop _all
+	set obs 10
+	gen x = rgamma(2,4)
+	summarize x, detail 
+	return scalar xmean = r(mean) 
+end 
+
+set seed 472195
+simulate xmean = r(xmean), reps(1000): n10
+
+histogram xmean, freq normal subtitle("n = 10") xtitle("Sample Mean") ytitle("") 
+graph save hist10, replace
+
+qnorm xmean, subtitle("n = 10") ytitle("Sample Mean") 
+graph save qqplot10, replace
+
+capture program drop n100
+program define n100, rclass
+	drop _all
+	set obs 100
+	gen x = rgamma(2,4)
+	summarize x, detail 
+	return scalar xmean = r(mean) 
+end 
+
+set seed 472195
+simulate xmean = r(xmean), reps(1000): n100
+
+histogram xmean, freq normal subtitle("n = 100") xtitle("Sample Mean") ytitle("") 
+graph save hist100, replace
+
+qnorm xmean, subtitle("n = 100") ytitle("Sample Mean") 
+graph save qqplot100, replace
+
+capture program drop n1000
+program define n1000, rclass
+	drop _all
+	set obs 1000
+	gen x = rgamma(2,4)
+	summarize x, detail 
+	return scalar xmean = r(mean) 
+end 
+
+set seed 472195
+simulate xmean = r(xmean), reps(1000): n1000 
+
+histogram xmean, freq normal subtitle("n = 1,000") xtitle("Sample Mean") ytitle("") 
+graph save hist1000, replace
+
+qnorm xmean, subtitle("n = 1,000") ytitle("Sample Mean") 
+graph save qqplot1000, replace
+
+capture program drop n10k 
+program define n10k, rclass
+	drop _all
+	set obs 10000
+	gen x = rgamma(2,4)
+	summarize x, detail 
+	return scalar xmean = r(mean) 
+end 
+
+set seed 472195
+simulate xmean = r(xmean), reps(1000): n10k
+
+histogram xmean, freq normal subtitle("n = 10,000") xtitle("Sample Mean") ytitle("") 
+graph save hist10k, replace
+
+qnorm xmean, subtitle("n = 10,000") ytitle("Sample Mean") 
+graph save qqplot10k, replace
