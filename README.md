@@ -3,7 +3,14 @@ Generates 1,000 samples of size n=10, 100, 1,000, and 10,000 from the distributi
 
 Response to the question below, followed by histograms and q-q plots for each of the three sample sizes of interest:
 
-https://cloud.githubusercontent.com/assets/6961260/7851298/d016d1e6-051f-11e5-861a-caff58a54820.pnghttps://cloud.githubusercontent.com/assets/6961260/7851300/d54df9be-051f-11e5-9b03-21ff0d2250ac.pnghttps://cloud.githubusercontent.com/assets/6961260/7851301/d93b9f22-051f-11e5-972c-40a225a15c74.pnghttps://cloud.githubusercontent.com/assets/6961260/7851302/de8289aa-051f-11e5-92a1-0d6fee65dd3d.pnghttps://cloud.githubusercontent.com/assets/6961260/7851305/e58a79ec-051f-11e5-8035-d22423db8534.pnghttps://cloud.githubusercontent.com/assets/6961260/7851307/eaa419ce-051f-11e5-9843-7ff620e8d4e1.pnghttps://cloud.githubusercontent.com/assets/6961260/7851308/ed61e786-051f-11e5-9388-de3d0dfa6853.pnghttps://cloud.githubusercontent.com/assets/6961260/7851309/f1518702-051f-11e5-80e9-e839a82d9c05.png
+https://cloud.githubusercontent.com/assets/6961260/7851298/d016d1e6-051f-11e5-861a-caff58a54820.png
+https://cloud.githubusercontent.com/assets/6961260/7851300/d54df9be-051f-11e5-9b03-21ff0d2250ac.png
+https://cloud.githubusercontent.com/assets/6961260/7851301/d93b9f22-051f-11e5-972c-40a225a15c74.png
+https://cloud.githubusercontent.com/assets/6961260/7851302/de8289aa-051f-11e5-92a1-0d6fee65dd3d.png
+https://cloud.githubusercontent.com/assets/6961260/7851305/e58a79ec-051f-11e5-8035-d22423db8534.png
+https://cloud.githubusercontent.com/assets/6961260/7851307/eaa419ce-051f-11e5-9843-7ff620e8d4e1.png
+https://cloud.githubusercontent.com/assets/6961260/7851308/ed61e786-051f-11e5-9388-de3d0dfa6853.png
+https://cloud.githubusercontent.com/assets/6961260/7851309/f1518702-051f-11e5-80e9-e839a82d9c05.png
 
 This study extends Barro and Sala-i-Martin’s analysis of the presence of β and σ convergence across US states from 1880 through 1990, examining whether or not these two types of convergence are still present from 1997 to 2013. This study also finds β convergence, or that states that started with a lower level of income per capita in 1997 grew faster from 1997 to 2013. However, whereas Barro and Sala-i-Martin conclude that σ convergence, or the narrowed dispersion of income per capita levels among U.S. states over time, occurred from 1880 to 1990, this trend did not continue from 1997 to 2013. The dispersion of GDP per capita among US states continued to decline until 2003, but began to increase directly prior and over the course of the Great Recession (2007-2009).
 
@@ -40,7 +47,7 @@ Using the equation in Figure 2, β is derived to be approximately -0.01187, as s
 
 https://cloud.githubusercontent.com/assets/6961260/7851907/86fc5de2-0528-11e5-9466-3e425ac46f9e.png
   
-Figure 3:   CV for Real Income per Capita across US States from 1997-2013
+Figure 3:CV for Real Income per Capita across US States from 1997-2013
 
 The CV for each year results from dividing the standard deviation of the variable income per capita for a given year by its mean, with the standard deviation and mean of the variable for each year from 1997 to 2013 being calculated in Stata as shown in the part 1 of Appendix A and the corresponding output to this Stata code depicted in part 1 of Appendix B. By looking at the CV values in the fourth column of Figure 3, we can conclude that CV2013 > CV1997, or that σ convergence did not occur over the time period in question. Figure 4 below depicts the trend in CV over the course of 1997 through 2013, with a decrease in CV until t = 7, corresponding to the year 2003. Past 2003, the dispersion in the income per capita of US states increased steadily until 2013, with the exception of the point t = 13 corresponding to the year 2009. In the year 2009, the dispersion of income per capita among US states was exceptionally high, with this year corresponding to the depth of the Great Recession, as discussed in the analysis section below. Even though σ convergence occurred from 1997 to 2003, the income per capita levels diverged at a greater rate from 2003 to 2013, overshadowing any σ convergence that took place from 97-03 and, subsequently, resulted in an overall trend of σ divergence from 1997-2013.
 
