@@ -58,3 +58,4 @@ Figure 4: Graph of CV from 1997-2013
 The strength of the evidence against σ convergence is verified through the regression results of time on the variable CV, obtained using commands depicted in part 2. of Appendix A. The coefficient on the variable for time of 0.0008969 is derived by estimating the population model below and can be interpreted as, holding all other factors constant, the coefficient of variation increased by 0.0008969 from one year to the next. Not only does σ divergence occur from 1997-2013, but this growth of CV over time is statistically significant at the 5% and 10% levels of significance, with a p-value of 0.029 on the coefficient of time.
 
 https://cloud.githubusercontent.com/assets/6961260/7851909/87013dee-0528-11e5-9e12-c73881e1663f.png                       
+-
