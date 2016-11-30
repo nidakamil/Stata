@@ -47,7 +47,7 @@ Using the equation in Figure 2, β is derived to be approximately -0.01187, as s
 
 https://cloud.githubusercontent.com/assets/6961260/7851907/86fc5de2-0528-11e5-9466-3e425ac46f9e.png
   
-Figure 3:CV for Real Income per Capita across US States from 1997-2013
+Figure 3: CV for Real Income per Capita across US States from 1997-2013
 
 The CV for each year results from dividing the standard deviation of the variable income per capita for a given year by its mean, with the standard deviation and mean of the variable for each year from 1997 to 2013 being calculated in Stata as shown in the part 1 of Appendix A and the corresponding output to this Stata code depicted in part 1 of Appendix B. By looking at the CV values in the fourth column of Figure 3, we can conclude that CV2013 > CV1997, or that σ convergence did not occur over the time period in question. Figure 4 below depicts the trend in CV over the course of 1997 through 2013, with a decrease in CV until t = 7, corresponding to the year 2003. Past 2003, the dispersion in the income per capita of US states increased steadily until 2013, with the exception of the point t = 13 corresponding to the year 2009. In the year 2009, the dispersion of income per capita among US states was exceptionally high, with this year corresponding to the depth of the Great Recession, as discussed in the analysis section below. Even though σ convergence occurred from 1997 to 2003, the income per capita levels diverged at a greater rate from 2003 to 2013, overshadowing any σ convergence that took place from 97-03 and, subsequently, resulted in an overall trend of σ divergence from 1997-2013.
 
