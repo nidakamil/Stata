@@ -1,0 +1,35 @@
+capture log close 
+clear all 
+set more off 
+cd "C:\Users\Natalia\Desktop\Convergence Project"
+log using "C:\Users\Natalia\Desktop\Convergence Project\convergence.log", replace   
+import excel "C:\Users\Natalia\Desktop\Convergence Project\perCapitaRealGDPbyState.xls", sheet("Sheet0") firstrow
+
+
+generate logy2013 = log(yr2013) 
+generate logy1997 = log(yr1997)
+generate growthrate = (logy2013 - logy1997)/ (2013 - 1997)
+  
+regress growthrate logy1997
+
+drop if Area  == "District of Columbia"
+regress growthrate logy1997  
+
+
+summarize yr1997 
+summarize yr1998
+summarize yr1999
+summarize yr2000
+summarize yr2001
+summarize yr2002
+summarize yr2003
+summarize yr2004
+summarize yr2005
+summarize yr2006
+summarize yr2007
+summarize yr2008
+summarize yr2009
+summarize yr2010
+summarize yr2011
+summarize yr2012
+summarize yr2013

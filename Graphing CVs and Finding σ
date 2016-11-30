@@ -1,0 +1,9 @@
+capture log close 
+clear all 
+set more off 
+cd "C:\Users\Natalia\Desktop\Convergence Project"
+log using "C:\Users\Natalia\Desktop\Convergence Project\cv.log", replace   
+import excel "C:\Users\Natalia\Desktop\Convergence Project\CV.xlsx", sheet("Sheet1") firstrow clear
+
+twoway (scatter CV t) (fpfit CV t), ytitle(Coefficient of Variation (CV)) xtitle(Time (t)) title(CV of US States From 1997-2013)
+regress CV t 
