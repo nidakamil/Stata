@@ -1,0 +1,82 @@
+capture log close 
+clear all 
+set more off 
+cd "G:\FAC\Chau Do\Tipping Point Project\HMDA"
+log using "G:\FAC\Chau Do\Tipping Point Project\HMDA\counts_All.log", replace   
+use "G:\FAC\Chau Do\Tipping Point\hmda_2013.dta"
+
+
+drop if action_type == "6"
+**2,772,669 observations deleted
+sort state county census_tract
+/* Constructing geoid*/
+destring state county census_tract, replace 
+tostring state county census_tract, replace 
+generate geoid = state+ "-" + county + "-" + census_tract
+
+
+/*After converting state, county, and census_tract to integer and then back to 
+string, drop if missing(state) etc. did not actually drop the missing values 
+since for each missing value, state = ".", county = ".", and census_tract = ".".
+Therefore in the following three lines, made this adjustment from hmdaCounting 
+do file.  This adjusting actually drops the missing values, whereas in the 
+hmdaCounting dofile, missing values are not dropped.*/
+drop if state == "."
+**1,341 observations deleted
+drop if county == "."
+drop if census_tract == "."
+
+
+drop if state == "0"
+**378,109 observations deleted
+drop if county == "0"
+drop if census_tract == "0" 
+drop if geoid == "0-0-0" 
+
+/*deleted observations with 9999999 value for census_tract since this number used 
+to denote observations that do not corresponding to any census tract. */
+drop if census_tract == "999999"
+**19,893 observations deleted
+count 
+**13,753,701. 
+
+/*Saving this edited version of hmda data set to merged with compiled Census 
+dataset AllVariables_alteredID.do*/
+save "G:\FAC\Chau Do\Tipping Point Project\HMDA\hmda_2013_edited", replace
+
+generate index = 1 
+by geoid, sort: egen appvolume = count(index)
+
+//Total origination volume stored in variable origination volume 
+by geoid: egen originationvolume = count(index)  if action_type == "1"
+
+//Total application volume for each of the 10 loan purposes within a given census tract
+by geoid: egen appvolpurp1 = count(index) if loan_purpose == "1"
+by geoid: egen appvolpurp2 = count(index) if loan_purpose == "2"
+by geoid: egen appvolpurp3 = count(index) if loan_purpose == "3"
+
+
+//Total origination volume for each of the 10 loan purposes within a given census tract
+by geoid: egen originvolpurp1 = count(index) if loan_purpose == "1" && action_type == "1" 
+by geoid: egen originvolpurp2 = count(index) if loan_purpose == "2" && action_type == "1"
+by geoid: egen originvolpurp3 = count(index) if loan_purpose == "3" && action_type == "1"
+
+
+//Total application volume by conventional loan type  
+by geoid: egen appvolconvent = count(index)  if loan_type == "1" 
+
+
+
+//Total origination volume by conventional loan type 
+by geoid: egen originvolconvent = count(index)  if loan_type == "1"  && action_type == "1"
+
+// Finding total application and origination volume by government loan type 
+generate appvolgov = appvolume - appvolconvent
+generate originvolgov = originationvolume - originvolconvent 
+
+/* Dropping variables that are no longer needed, collapsing remaining data by 
+state, county, and census tract identifier*/
+drop loan_application_number loan_type loan_purpose action_type index 
+collapse (mean) mappvolume = appvolume moriginationvolume = originationvolume mappvolpurp1= appvolpurp1 mappvolpurp2= appvolpurp2 mappvolpurp3= appvolpurp3 moriginvolpurp1 = originvolpurp1 moriginvolpurp2 = originvolpurp2 moriginvolpurp3 = originvolpurp3  mappvolconvent = appvolconvent moriginvolconvent = originvolconvent mappvolgov = appvolgov moriginvolgov = originvolgov, by(geoid)
+save hmdaCollapsedFull_altered, replace 
+
