@@ -1,0 +1,1 @@
+Program which graphs loan application volumes vs. percentage increments of demographic variables such as minority percentage, unemployment rate, and poverty rate for 20 metropolitan areas across the US
